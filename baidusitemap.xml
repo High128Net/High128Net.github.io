@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+    
+  <url>
+    <loc>http://high128net.github.io/2018/01/09/react%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86%E5%90%AB%E5%9B%BE%E7%89%87/</loc>
+    <lastmod>2018-01-09T11:27:33.377Z</lastmod>
+    <data>
+        <display>
+        <title>React中的样式处理-图片</title>
+        <pubTime>2018-01-09T08:30:02.000Z</pubTime>
+        
+        <tag>react</tag>
+         
+         
+           
+             
+              <breadCrumb title="测试" url="http://high128net.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://high128net.github.io/2018/01/09/hello-world/</loc>
+    <lastmod>2018-01-09T11:22:25.473Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2018-01-09T11:22:25.475Z</pubTime>
+        
+        <tag>hello</tag>
+         
+         
+           
+             
+              <breadCrumb title="start" url="http://high128net.github.io/categories/start/"/>
+          
+        </display>
+    </data>
+    </url>
+
+</urlset>
