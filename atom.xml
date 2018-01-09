@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>charlie阿毛&#39;s blog</title>
+  <title>Charlie阿毛&#39;s Blog</title>
   
   <subtitle>Make A Difference To The World</subtitle>
   <link href="/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>http://blog.charlie-amao.tech/</id>
   
   <author>
-    <name>charlie阿毛</name>
+    <name>Charlie阿毛</name>
     
   </author>
   
