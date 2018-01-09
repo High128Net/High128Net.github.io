@@ -5,9 +5,9 @@
   <subtitle>Make A Difference To The World</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.charlie-amao.tech/"/>
+  <link href="http://high128net.github.io/"/>
   <updated>2018-01-09T11:22:25.473Z</updated>
-  <id>http://blog.charlie-amao.tech/</id>
+  <id>http://high128net.github.io/</id>
   
   <author>
     <name>Charlie阿毛</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://blog.charlie-amao.tech/2018/01/09/hello-world/"/>
-    <id>http://blog.charlie-amao.tech/2018/01/09/hello-world/</id>
+    <link href="http://high128net.github.io/2018/01/09/hello-world/"/>
+    <id>http://high128net.github.io/2018/01/09/hello-world/</id>
     <published>2018-01-09T11:22:25.475Z</published>
     <updated>2018-01-09T11:22:25.473Z</updated>
     
@@ -34,17 +34,17 @@
     
     </summary>
     
-      <category term="start" scheme="http://blog.charlie-amao.tech/categories/start/"/>
+      <category term="start" scheme="http://high128net.github.io/categories/start/"/>
     
     
-      <category term="hello" scheme="http://blog.charlie-amao.tech/tags/hello/"/>
+      <category term="hello" scheme="http://high128net.github.io/tags/hello/"/>
     
   </entry>
   
   <entry>
     <title>React中的样式处理-图片</title>
-    <link href="http://blog.charlie-amao.tech/2018/01/09/react%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86%E5%90%AB%E5%9B%BE%E7%89%87/"/>
-    <id>http://blog.charlie-amao.tech/2018/01/09/react样式处理含图片/</id>
+    <link href="http://high128net.github.io/2018/01/09/react%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86%E5%90%AB%E5%9B%BE%E7%89%87/"/>
+    <id>http://high128net.github.io/2018/01/09/react样式处理含图片/</id>
     <published>2018-01-09T08:30:02.000Z</published>
     <updated>2018-01-09T11:27:33.377Z</updated>
     
@@ -61,10 +61,10 @@
     
     </summary>
     
-      <category term="测试" scheme="http://blog.charlie-amao.tech/categories/%E6%B5%8B%E8%AF%95/"/>
+      <category term="测试" scheme="http://high128net.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="react" scheme="http://blog.charlie-amao.tech/tags/react/"/>
+      <category term="react" scheme="http://high128net.github.io/tags/react/"/>
     
   </entry>
   
