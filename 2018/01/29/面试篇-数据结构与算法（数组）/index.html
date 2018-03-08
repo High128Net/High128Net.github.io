@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>面试篇-数据结构与算法（数组） | Charlie-Amao&#39;s Blog</title>
+  <meta name="description" content="master,researcher,engineer.make a difference to the world.注：本文所涉及代码和方法均使用java。 数据结构数组1.1 定义数组格式一：元素类型[] 数组名 = new 元素类型[元素个数或数组长度];格式二：元素类型[] 数组名 = new 元素类型[]{元素，元素，……};12345//定义了一个数组，并且指定了数组的长度，我们这里称它">
+<meta name="keywords" content="数据结构与算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试篇-数据结构与算法（数组）">
+<meta property="og:url" content="http://high128net.github.io/2018/01/29/面试篇-数据结构与算法（数组）/index.html">
+<meta property="og:site_name" content="Charlie-Amao&#39;s Blog">
+<meta property="og:description" content="master,researcher,engineer.make a difference to the world.注：本文所涉及代码和方法均使用java。 数据结构数组1.1 定义数组格式一：元素类型[] 数组名 = new 元素类型[元素个数或数组长度];格式二：元素类型[] 数组名 = new 元素类型[]{元素，元素，……};12345//定义了一个数组，并且指定了数组的长度，我们这里称它">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-29T13:31:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试篇-数据结构与算法（数组）">
+<meta name="twitter:description" content="master,researcher,engineer.make a difference to the world.注：本文所涉及代码和方法均使用java。 数据结构数组1.1 定义数组格式一：元素类型[] 数组名 = new 元素类型[元素个数或数组长度];格式二：元素类型[] 数组名 = new 元素类型[]{元素，元素，……};12345//定义了一个数组，并且指定了数组的长度，我们这里称它">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://high128net.github.io/2018/01/29/面试篇-数据结构与算法（数组）/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Charlie-Amao&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/amao_logo.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-blue" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/High128Net" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Charlie-Amao</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">AI Enthusiast, Developer &amp; Engineer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Beijing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/High128Net" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/2563714807" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            
+            <p>您好，您是第<span id="busuanzi_value_site_uv">0</span>位访客</p>
+            
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/KnowledgeGraph/">KnowledgeGraph</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cypher/">Cypher</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/面试/">面试</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/01/30/面试篇-数据结构与算法（散列表）/" class="title">面试篇-数据结构与算法（散列表）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-01-30T05:40:22.154Z" itemprop="datePublished">2018-01-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/面试/">面试</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/01/29/面试篇-数据结构与算法（数组）/" class="title">面试篇-数据结构与算法（数组）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-01-29T13:31:44.207Z" itemprop="datePublished">2018-01-29</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/KnowledgeGraph/">KnowledgeGraph</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/01/12/Neo4j-Cypher语言编程/" class="title">Neo4j-Cypher语言编程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-01-12T12:35:32.000Z" itemprop="datePublished">2018-01-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2018/01/10/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-01-10T03:42:00.959Z" itemprop="datePublished">2018-01-10</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-面试篇-数据结构与算法（数组）" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面试篇-数据结构与算法（数组）
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/01/29/面试篇-数据结构与算法（数组）/" class="article-date">
+	  <time datetime="2018-01-29T13:31:44.207Z" itemprop="datePublished">2018-01-29</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/面试/">面试</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/数据结构与算法/">数据结构与算法</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/01/29/面试篇-数据结构与算法（数组）/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 902(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h2 id="master-researcher-engineer-make-a-difference-to-the-world"><a href="#master-researcher-engineer-make-a-difference-to-the-world" class="headerlink" title="master,researcher,engineer.make a difference to the world."></a><div align="center"><font color="green"><i>master,researcher,engineer.make a difference to the world.</i></font></div></h2><p><font color="red"><strong>注：</strong></font>本文所涉及代码和方法均使用<strong>java</strong>。</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="1-1-定义数组"><a href="#1-1-定义数组" class="headerlink" title="1.1 定义数组"></a>1.1 定义数组</h4><p>格式一：<br>元素类型[] 数组名 = new 元素类型[元素个数或数组长度];<br>格式二：<br>元素类型[] 数组名 = new 元素类型[]{元素，元素，……};<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义了一个数组，并且指定了数组的长度，我们这里称它为动态定义</span></span><br><span class="line">String[] aArray = <span class="keyword">new</span> String[<span class="number">5</span>];</span><br><span class="line"><span class="comment">//在分配内存空间的同时还初始化了值</span></span><br><span class="line">String[] bArray = &#123;<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span>&#125;;</span><br><span class="line">String[] cArray = <span class="keyword">new</span> String[]&#123;<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><font color="red"><strong>注：</strong></font>给数组分配空间时，必须指定数组能够存储的元素个数来确定数组大小。创建数组之后不能修改数组的大小。可以使用<strong>length属性</strong>获取数组的大小。</p>
+<p><font color="red"><strong>注：</strong></font>下列写法是错误的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr;</span><br><span class="line">arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-2-打印数组元素"><a href="#1-2-打印数组元素" class="headerlink" title="1.2 打印数组元素"></a>1.2 打印数组元素</h4><p>使用方法1：Arrays.toString(array)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] intArray = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line">String intArrayString = Arrays.toString(intArray);</span><br><span class="line">System.out.println(intArrayString);</span><br></pre></td></tr></table></figure></p>
+<p>使用方法2：字符串的形式输出,StringUtils.join()<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] stringArray = &#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span>&#125;;</span><br><span class="line">System.out.println(StringUtils.join(Arrays.asList(stringArray),<span class="string">","</span>));</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-3-从Array中创建动态数组ArrayList："><a href="#1-3-从Array中创建动态数组ArrayList：" class="headerlink" title="1.3 从Array中创建动态数组ArrayList："></a>1.3 从Array中创建动态数组ArrayList：</h4><p>使用方法：new ArrayList&lt;&gt;(Arrays.asList(array))<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] stringArray = &#123; <span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span> &#125;;</span><br><span class="line">ArrayList&lt;String&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(stringArray));</span><br><span class="line">System.out.println(arrayList);</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-4-ArrayList转为数组"><a href="#1-4-ArrayList转为数组" class="headerlink" title="1.4 ArrayList转为数组"></a>1.4 ArrayList转为数组</h4><p>使用方法：arrayList.toArray()</p>
+<h4 id="1-5-将Array转成Set集合"><a href="#1-5-将Array转成Set集合" class="headerlink" title="1.5 将Array转成Set集合"></a>1.5 将Array转成Set集合</h4><p>Set集合可自动去重，排序。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String[] stringArray = &#123;<span class="string">"a"</span>,<span class="string">"e"</span>,<span class="string">"c"</span>,<span class="string">"b"</span>,<span class="string">"a"</span>,<span class="string">"c"</span>&#125;;</span><br><span class="line">Set&lt;String&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;(Arrays.asList(stringArray));</span><br><span class="line">System.out.println(set);</span><br><span class="line"><span class="comment">//输出[a, b, c, e]</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="1-6-java-util-Arrays类"><a href="#1-6-java-util-Arrays类" class="headerlink" title="1.6 java.util.Arrays类"></a>1.6 java.util.Arrays类</h4><p>常用方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Arrays.toString()</span><br><span class="line">Arrays.deepToString()</span><br><span class="line">Arrays.asList()</span><br><span class="line">Arrays.sort()，（注：可考虑带上<span class="keyword">new</span> Comparator&lt;Integer&gt;() &#123;&#125;自定义比较器情况）</span><br><span class="line">Arrays.copyOf()</span><br><span class="line">Arrays.copyOfRange()</span><br><span class="line">Arrays.binarySearch()</span><br><span class="line">Arrays.equals()</span><br><span class="line">Arrays.deepEquals()</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-7-二维数组的初始化"><a href="#1-7-二维数组的初始化" class="headerlink" title="1.7 二维数组的初始化"></a>1.7 二维数组的初始化</h4><p>静态初始化<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> intArray[ ][ ]=&#123;&#123;<span class="number">1</span>,<span class="number">2</span>&#125;,&#123;<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>Java语言中，由于把二维数组看作是数组的数组，数组空间不是连续分配的，所以不要求二维数组每一维的大小相同。<br>动态初始化<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>][<span class="number">3</span>];</span><br></pre></td></tr></table></figure></p>
+<p>二维简单数据类型数组的动态初始化<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String s[][] = <span class="keyword">new</span> String[<span class="number">2</span>][];</span><br><span class="line">s[<span class="number">0</span>] = <span class="keyword">new</span> String[<span class="number">2</span>];<span class="comment">//为最高维分配引用空间  </span></span><br><span class="line">s[<span class="number">1</span>] = <span class="keyword">new</span> String[<span class="number">2</span>]; <span class="comment">//为最高维分配引用空间  </span></span><br><span class="line">s[<span class="number">0</span>][<span class="number">0</span>] = <span class="keyword">new</span> String(<span class="string">"Good"</span>);<span class="comment">// 为每个数组元素单独分配空间  </span></span><br><span class="line">s[<span class="number">0</span>][<span class="number">1</span>] = <span class="keyword">new</span> String(<span class="string">"Luck"</span>);<span class="comment">// 为每个数组元素单独分配空间  </span></span><br><span class="line">s[<span class="number">1</span>][<span class="number">0</span>] = <span class="keyword">new</span> String(<span class="string">"to"</span>);<span class="comment">// 为每个数组元素单独分配空间  </span></span><br><span class="line">s[<span class="number">1</span>][<span class="number">1</span>] = <span class="keyword">new</span> String(<span class="string">"You"</span>);<span class="comment">// 为每个数组元素单独分配空间</span></span><br></pre></td></tr></table></figure></p>
+<p>对二维复合数据类型的数组，必须首先为最高维分配引用空间，然后再顺次为低维分配空间。而且，必须为每个数组元素单独分配空间。</p>
+<h4 id="1-8-ArrayList（动态数组）"><a href="#1-8-ArrayList（动态数组）" class="headerlink" title="1.8 ArrayList（动态数组）"></a>1.8 ArrayList（动态数组）</h4><p>大小：<strong>arrayList.size()</strong><br>遍历方式：<br>迭代器遍历<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;Integer&gt; it = arrayList.iterator();</span><br><span class="line"><span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">    System.out.print(it.next() + <span class="string">" "</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>索引值遍历<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList.size(); i++)&#123;</span><br><span class="line">   System.out.print(arrayList.get(i) + <span class="string">" "</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>for循环遍历<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(Integer number : arrayList)&#123;</span><br><span class="line">   System.out.print(number + <span class="string">" "</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>常用方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义</span></span><br><span class="line">ArrayList&lt;Integer&gt; intArrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">ArrayList&lt;Integer&gt; intArrayList = <span class="keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(intArray));</span><br><span class="line"><span class="comment">//新增</span></span><br><span class="line">intArrayList.add(E e)</span><br><span class="line">intArrayList.add(<span class="keyword">int</span> index, E element)</span><br><span class="line">intArrayList.addAll(Collection&lt;? extends E&gt; c)</span><br><span class="line">intArrayList.addAll(<span class="keyword">int</span> index, Collection&lt;? extends E&gt; c)</span><br><span class="line"><span class="comment">//更新</span></span><br><span class="line">intArrayList.set(<span class="keyword">int</span> index, E element)</span><br><span class="line"><span class="comment">//删除</span></span><br><span class="line">intArrayList.remove(<span class="keyword">int</span> index)</span><br><span class="line">intArrayList.remove(Object o)</span><br><span class="line">intArrayList.removeRange(<span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</span><br><span class="line">intArrayList.removeAll()</span><br><span class="line"><span class="comment">//查找</span></span><br><span class="line">intArrayList.get(<span class="keyword">int</span> index)</span><br><span class="line"><span class="comment">//扩容</span></span><br><span class="line">Arrays.copyOf(intArrayList,newSize)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://high128net.github.io/2018/01/29/面试篇-数据结构与算法（数组）/" title="面试篇-数据结构与算法（数组）" target="_blank" rel="external">http://high128net.github.io/2018/01/29/面试篇-数据结构与算法（数组）/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/High128Net" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/High128Net" target="_blank"><span class="text-dark">Charlie-Amao</span><small class="ml-1x">AI Enthusiast, Developer &amp; Engineer</small></a></h3>
+        <div>以梦为马 不负韶华，Make a difference to the world.</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/01/30/面试篇-数据结构与算法（散列表）/" title="面试篇-数据结构与算法（散列表）"><i class="icon icon-angle-left" aria-hidden="true"></i>&nbsp;&nbsp;上一篇</a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/01/12/Neo4j-Cypher语言编程/" title="Neo4j-Cypher语言编程">下一篇&nbsp;&nbsp;<i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning hidden-xs" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="wechat,weibo,qq,facebook,twitter" data-mobile-sites="wechat,weibo,qq,qzone"></div>
+    
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-tit">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="donate-payimg">
+            <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+          </div>
+          <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+          <div class="donate-payselect">
+            <div class="pay_item checked" data-id="alipay" data-src="/images/donate/alipayimg.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-alipay" value="alipay" checked>
+                <label class="pay_logo clickable" for="input-alipay"><img src="/images/donate/alipay.jpg" alt="支付宝" /></label>
+              </div>
+            </div>
+            <div class="pay_item" data-id="weipay" data-src="/images/donate/weipayimg.png">
+              <div class="radio">
+                <input type="radio" name="payment" id="input-weipay" value="weipay">
+                <label class="pay_logo clickable" for="input-weipay"><img src="/images/donate/weipay.jpg" alt="微信支付" /></label>
+              </div>
+            </div>
+          </div>
+          <div class="text-grey">
+            <p>扫一扫，即可进行扫码打赏哦</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/High128Net" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/2563714807" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2018 Charlie-Amao
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/High128Net" target="_blank"> charlie </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+<script defer src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+        
+    
+    
+
+
+
+</body>
+</html>
